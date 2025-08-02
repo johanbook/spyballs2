@@ -1,0 +1,46 @@
+import * as React from "react";
+
+import RoomIcon from "@mui/icons-material/Room";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+
+interface ILocationListItemProps {
+  location: string;
+}
+
+function LocationListItem({ location }: ILocationListItemProps) {
+  const [marked, setMarked] = React.useState(false);
+
+  return (
+    <ListItem disablePadding>
+      <ListItemButton onClick={() => setMarked(!marked)}>
+        <ListItemIcon>
+          <RoomIcon />
+        </ListItemIcon>
+        <ListItemText
+          primary={location}
+          sx={{ textDecoration: marked ? "line-through" : "none" }}
+        />
+      </ListItemButton>
+    </ListItem>
+  );
+}
+
+interface ILocationListProps {
+  locations: string[];
+}
+
+export default function LocationList({ locations }: ILocationListProps) {
+  return (
+    <React.Fragment>
+      <List>
+        {locations.map((location) => (
+          <LocationListItem key={location} location={location} />
+        ))}
+      </List>
+    </React.Fragment>
+  );
+}

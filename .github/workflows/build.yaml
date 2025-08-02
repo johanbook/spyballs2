@@ -1,0 +1,29 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - "main"
+
+jobs:
+  build-and-push-docker-image:
+    name: Build and push Docker image
+    runs-on: ubuntu-latest
+    env:
+      TAG: ghcr.io/johanbook/spyballs:latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Login to ghcr.io
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: docker build . --file Dockerfile --tag $TAG
+
+      - name: Push Docker image to ghcr.io
+        run: docker push $TAG
