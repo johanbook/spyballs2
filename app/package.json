@@ -46,7 +46,7 @@
     ]
   },
   "devDependencies": {
-    "prettier": "^2.5.1",
+    "prettier": "^3.6.2",
     "react-hot-toast": "^2.2.0"
   }
 }
