@@ -1,7 +1,7 @@
 ################################
 # Build assets
 ################################
-FROM node:24.4.1-alpine as builder
+FROM node:24.4.1-alpine AS builder
 
 WORKDIR /app
 
@@ -13,7 +13,7 @@ RUN npm run build
 ################################
 # Create server
 ################################
-FROM python:3.13-slim-buster
+FROM python:3.13-slim
 
 WORKDIR /app
 
