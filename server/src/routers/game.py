@@ -11,10 +11,10 @@ def create_game():
     return {"game_id": game_id}
 
 
-@router.get("/list", status_code=201)
+@router.get("/list", status_code=200)
 def list_games():
-    games = {
-        game_code: game_manager.game.export_all()
-        for game_code, game_manager in SUPERVISOR.games.items()
-    }
+    games = [
+        game_manager.game.export_all() for game_manager in SUPERVISOR.games.values()
+    ]
+
     return games
