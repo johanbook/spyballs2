@@ -25,28 +25,23 @@ export async function createGame() {
 
 const PROTOCOL = window.location.protocol === "https" ? "wss" : "ws";
 
-export let WEBSOCKET = null;
+let WEBSOCKET: WebSocket | undefined;
 
-export function createWebsocket(
+function createWebsocket(
   url: string,
-  setGameState: (state: IGameState) => void,
+  setGameState: (state?: IGameState) => void,
 ) {
   WEBSOCKET = new WebSocket(url);
 
-  WEBSOCKET.onclose = function () {
-    setGameState(null);
-    //notifications.error("Lost connection to server");
-  };
+  WEBSOCKET.addEventListener("close", () => {
+    setGameState();
+  });
 
-  WEBSOCKET.onerror = function (event) {
-    if (event.message) {
-      notifications.error(`Encountered error: ${event.message}`);
-    } else {
-      notifications.error(`Something went wrong :(`);
-    }
-  };
+  WEBSOCKET.addEventListener("error", () => {
+    notifications.error(`Something went wrong :(`);
+  });
 
-  WEBSOCKET.onmessage = function (event) {
+  WEBSOCKET.addEventListener("message", (event) => {
     const json = JSON.parse(event.data);
     console.log(json);
 
@@ -61,7 +56,8 @@ export function createWebsocket(
     if (json.game_state !== undefined) {
       setGameState(json.game_state);
     }
-  };
+  });
+
   return WEBSOCKET;
 }
 
