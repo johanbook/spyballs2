@@ -13,15 +13,16 @@ RUN npm run build
 ################################
 # Create server
 ################################
-FROM python:3.8-slim-buster
+FROM python:3.13-slim-buster
 
 WORKDIR /app
 
-COPY server/requirements.txt requirements.txt
-RUN pip install -r requirements.txt
+RUN pip install pipenv
+
+COPY server/Pipfile* .
+RUN pipenv install --system --deploy
+
 COPY server/src src
-
-
 COPY --from=builder /app/dist /app/dist
 
 CMD ["uvicorn", "src.main:app", "--host", "::", "--port", "80"]
