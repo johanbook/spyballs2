@@ -3,8 +3,6 @@ import string
 from datetime import datetime
 from typing import Any, Dict, Optional
 
-import yaml
-
 from src import exceptions
 from src.config import Config
 
@@ -19,9 +17,9 @@ class Player:
 
 
 class Game:
-    def __init__(self, game_id: str, location_pack="default"):
+    def __init__(self, game_id: str):
         self.id = game_id
-        self.available_locations = Config["location_packs"][location_pack]
+        self.available_locations = Config["locations"]
         self.location: None | Any = None
         self.players: Dict[str, Player] = {}
         self.status = "LOBBY"

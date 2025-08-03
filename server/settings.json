@@ -1,0 +1,129 @@
+{
+  "locations": [
+    {
+      "name": "Beach",
+      "unique_roles": ["Shark", "Ice cream vendor"],
+      "nonunique_roles": ["Swimmer"]
+    },
+    {
+      "name": "Circus",
+      "unique_roles": ["Lion master", "Clown"],
+      "nonunique_roles": ["Audience member"]
+    },
+    {
+      "name": "Hospital",
+      "unique_roles": ["Doctor", "Nurse", "Janitor"],
+      "nonunique_roles": ["Patient", "Visitor of a patient"]
+    },
+    {
+      "name": "Ica",
+      "unique_roles": ["Shop keep"],
+      "nonunique_roles": ["Shopper"]
+    },
+    {
+      "name": "Parade",
+      "unique_roles": ["Thief"],
+      "nonunique_roles": ["Parade goer"]
+    },
+    {
+      "name": "Public bathhouse",
+      "unique_roles": ["Old naked man", "Receptionist"],
+      "nonunique_roles": ["Guest"]
+    },
+    {
+      "name": "Theatre",
+      "unique_roles": ["Actor"],
+      "nonunique_roles": ["Audience member"]
+    },
+    {
+      "name": "Tivoli",
+      "unique_roles": [],
+      "nonunique_roles": ["Attendee"]
+    },
+    {
+      "name": "University",
+      "unique_roles": ["Professor"],
+      "nonunique_roles": ["Student"]
+    },
+    {
+      "name": "Crashing airplane",
+      "unique_roles": ["Pilot", "Doctor", "Suicidal"],
+      "nonunique_roles": ["Passenger"]
+    },
+    {
+      "name": "Bank",
+      "unique_roles": ["Bank teller", "Robber"],
+      "nonunique_roles": ["Guest"]
+    },
+    {
+      "name": "Pirate spaceship",
+      "unique_roles": ["Captain", "Engineer", "Prisoner"],
+      "nonunique_roles": ["Pirate"]
+    },
+    {
+      "name": "Just a little boat in the middle of the ocean",
+      "unique_roles": ["Shark"],
+      "nonunique_roles": ["Boat sitter"]
+    },
+    {
+      "name": "Dinner at Edvin's home",
+      "unique_roles": [],
+      "nonunique_roles": ["Guest"]
+    },
+    {
+      "name": "Lundakarnevalen",
+      "unique_roles": ["Drunkard"],
+      "nonunique_roles": ["Student"]
+    },
+    {
+      "name": "Putin's council chamber",
+      "unique_roles": ["Putin", "Assassin"],
+      "nonunique_roles": []
+    },
+    {
+      "name": "Vineyard",
+      "unique_roles": ["Italian"],
+      "nonunique_roles": ["Person"]
+    },
+    {
+      "name": "New York subway station",
+      "unique_roles": ["Ticket controller"],
+      "nonunique_roles": ["Comumter"]
+    },
+    {
+      "name": "Wedding during a zombie apocalypse",
+      "unique_roles": ["Groom", "Zombie", "Bride", "Father-in-law"],
+      "nonunique_roles": ["Guest"]
+    },
+    {
+      "name": "Sinking Titanic",
+      "unique_roles": ["Shark", "Violinist", "Captain"],
+      "nonunique_roles": ["Passenger"]
+    },
+    {
+      "name": "Hitler's bunker",
+      "unique_roles": ["Hitler", "HR assistant"],
+      "nonunique_roles": ["Guard"]
+    },
+    {
+      "name": "Jail",
+      "unique_roles": ["Jail director"],
+      "nonunique_roles": ["Inmate", "Guard"]
+    },
+    {
+      "name": "Library",
+      "unique_roles": ["Librarian", "Child"],
+      "nonunique_roles": ["Guest"]
+    },
+    {
+      "name": "Gym",
+      "unique_roles": ["Gym bro"],
+      "nonunique_roles": ["Guest"]
+    },
+    {
+      "name": "Zoo",
+      "unique_roles": ["Zoo keeper", "Janitor"],
+      "nonunique_roles": ["Guest"]
+    }
+  ]
+}

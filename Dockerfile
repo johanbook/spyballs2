@@ -23,6 +23,7 @@ COPY server/Pipfile* .
 RUN pipenv install --system --deploy
 
 COPY server/src src
+COPY server/settings.json .
 COPY --from=builder /app/dist /app/dist
 
 CMD ["uvicorn", "src.main:app", "--host", "::", "--port", "80"]
