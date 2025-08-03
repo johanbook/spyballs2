@@ -1,4 +1,5 @@
 import logging
+from typing import Dict
 
 from src import exceptions, utils
 from src.GameManager import GameManager

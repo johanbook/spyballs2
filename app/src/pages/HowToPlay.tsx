@@ -39,9 +39,9 @@ export default function HowToPlay({ onClosePage }: IHowToPlayProps) {
         questions in order to try and figure out who the spy is (while the spy
         tries to figure out the location). You are allowed to ask whatever you
         want to whomever you want, and they can answer with as much or as little
-        infrormation as they please. Some example questions are: "How often are
-        you here?" "What are you wearing?" "How would you describe the
-        atmosphere of this place?"
+        infrormation as they please. Some example questions are: {'"'}How often
+        are you here?{'"'} {'"'}What are you wearing?{'"'} {'"'}How would you
+        describe the atmosphere of this place?{'"'}
       </Typography>
 
       <Typography gutterBottom>

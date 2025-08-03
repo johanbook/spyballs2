@@ -1,0 +1,30 @@
+name: App
+
+on:
+  pull_request:
+    branches:
+      - "main"
+
+jobs:
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./app
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install NodeJS
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: "npm"
+          cache-dependency-path: "app/package-lock.json"
+
+      - name: Install NodeJS dependencies
+        run: npm ci -D
+
+      - name: Run linting
+        run: npm run lint:ci
