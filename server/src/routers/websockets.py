@@ -1,11 +1,7 @@
-from fastapi import (
-    APIRouter,
-    Cookie,
-    WebSocket,
-    WebSocketDisconnect,
-)
 import json
 import logging
+
+from fastapi import APIRouter, Cookie, WebSocket, WebSocketDisconnect
 
 from src import SUPERVISOR
 
