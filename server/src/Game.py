@@ -1,7 +1,7 @@
 import random
 import string
 from datetime import datetime
-from typing import Dict, Optional
+from typing import Any, Dict, Optional
 
 import yaml
 
@@ -22,10 +22,10 @@ class Game:
     def __init__(self, game_id: str, location_pack="default"):
         self.id = game_id
         self.available_locations = Config["location_packs"][location_pack]
-        self.location = None
+        self.location: None | Any = None
         self.players: Dict[str, Player] = {}
         self.status = "LOBBY"
-        self.start_time = None
+        self.start_time: None | str = None
 
     def export(self, user_id):
         available_location_names = [
@@ -42,8 +42,10 @@ class Game:
             "start_time": self.start_time,
             "current_player": self.players[user_id].__dict__,
         }
-        if game_state["current_player"]["role"] == "Spy":
+
+        if game_state["current_player"]["role"] == "Spy":  # type: ignore
             game_state["location"] = "?"
+
         return game_state
 
     def export_all(self):
@@ -79,8 +81,10 @@ class Game:
 
     def start(self):
         self.location = random.choice(self.available_locations)
+
         roles = self.location["unique_roles"] + self.location["nonunique_roles"]
         random.shuffle(roles)
+
         spy = random.choice(list(self.players.keys()))
         for player_id, values in self.players.items():
             if not roles:

@@ -1,6 +1,6 @@
 import json
 import logging
-from typing import Optional
+from typing import Dict, Optional
 
 from fastapi import WebSocket
 
@@ -16,7 +16,7 @@ class GameManager:
         self.active_connections: Dict[str, WebSocket] = {}
 
     async def connect(self, user_id: str, websocket: WebSocket):
-        """ "Connect a player to the game"""
+        """Connect a player to the game"""
         self.active_connections[user_id] = websocket
         logging.debug(
             f"User websocket added. List of active connections: {self.active_connections.keys()}"
