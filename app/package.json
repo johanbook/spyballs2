@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "lint": "eslint src",
-    "lint::ci": "eslint src",
+    "lint:ci": "eslint src",
     "start": "vite",
     "build": "vite build",
     "test": "vitest",
-    "test::ci": "CI=true vitest",
+    "test:ci": "CI=true vitest",
     "format": "prettier --write src"
   },
   "dependencies": {
