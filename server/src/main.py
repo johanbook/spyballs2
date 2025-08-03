@@ -1,5 +1,5 @@
-from fastapi.staticfiles import StaticFiles
 from fastapi import FastAPI
+from fastapi.staticfiles import StaticFiles
 
 from src import exceptions
 from src.routers import game, user_id, websockets

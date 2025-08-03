@@ -1,8 +1,8 @@
 from typing import Optional
+
 from fastapi import APIRouter, Cookie, Response
 
 from src import utils
-
 
 router = APIRouter(prefix="/api")
 
