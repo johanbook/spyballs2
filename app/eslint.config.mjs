@@ -18,9 +18,6 @@ export default tseslint.config({
   ],
   files: ["src/**/*.{js,jsx,ts,tsx}"],
   rules: {
-    "@typescript-eslint/no-explicit-any": "off",
-    "@typescript-eslint/no-empty-function": "off",
-    "@typescript-eslint/no-empty-object-type": "off",
     "react/react-in-jsx-scope": "off",
     "sonarjs/todo-tag": "off",
     "unicorn/filename-case": "off",

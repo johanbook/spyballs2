@@ -23,6 +23,18 @@ export async function createGame() {
   return json;
 }
 
+export interface IGame {
+  location: null | { name: string };
+  id: string;
+  players: string[];
+  status: string;
+}
+
+export async function getGameList(): Promise<IGame[]> {
+  const resp = await fetch("/api/game/list");
+  return await resp.json();
+}
+
 const PROTOCOL = window.location.protocol === "https" ? "wss" : "ws";
 
 let WEBSOCKET: WebSocket | undefined;
@@ -43,7 +55,6 @@ function createWebsocket(
 
   WEBSOCKET.addEventListener("message", (event) => {
     const json = JSON.parse(event.data);
-    console.log(json);
 
     if (json.error) {
       notifications.error(json.error);

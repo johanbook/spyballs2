@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useEffect, useState } from "react";
 
 import Divider from "@mui/material/Divider";
 import List from "@mui/material/List";
@@ -6,11 +6,12 @@ import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import Typography from "@mui/material/Typography";
 
+import { IGame, getGameList } from "../api";
 import PlayerList from "../components/PlayerList";
 
-function Game({ game }: { game: any }) {
+function Game({ game }: { game: IGame }) {
   return (
-    <React.Fragment>
+    <>
       <ListItem>
         <ListItemText
           primary={`${game.id} (${game.status})`}
@@ -21,25 +22,24 @@ function Game({ game }: { game: any }) {
         <PlayerList players={game.players} />
       </List>
       <Divider />
-    </React.Fragment>
+    </>
   );
 }
 
 export default function Admin() {
-  const [games, setGames] = React.useState([]);
+  const [games, setGames] = useState<IGame[]>([]);
 
   async function getGames() {
-    const resp = await fetch("/api/game/list");
-    const json = await resp.json();
-    setGames(Object.values(json));
+    const games = await getGameList();
+    setGames(games);
   }
 
-  React.useEffect(() => {
+  useEffect(() => {
     getGames();
   }, []);
 
   return (
-    <React.Fragment>
+    <>
       <Typography
         align="center"
         mx={{ marginBottom: "1vh", marginTop: "6vh" }}
@@ -54,6 +54,6 @@ export default function Admin() {
           <Game game={game} key={game.id} />
         ))}
       </List>
-    </React.Fragment>
+    </>
   );
 }
