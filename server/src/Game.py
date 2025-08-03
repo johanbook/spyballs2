@@ -4,7 +4,7 @@ from datetime import datetime
 from typing import Any, Dict, Optional
 
 from src import exceptions
-from src.config import Config
+from src.config import SETTINGS, Location
 
 
 class Player:
@@ -19,17 +19,17 @@ class Player:
 class Game:
     def __init__(self, game_id: str):
         self.id = game_id
-        self.available_locations = Config["locations"]
-        self.location: None | Any = None
+        self.available_locations = SETTINGS.locations
+        self.location: None | Location = None
         self.players: Dict[str, Player] = {}
         self.status = "LOBBY"
         self.start_time: None | str = None
 
     def export(self, user_id):
         available_location_names = [
-            location["name"] for location in self.available_locations
+            location.name for location in self.available_locations
         ]
-        location_name = self.location.get("name") if self.location else None
+        location_name = self.location.name if self.location else None
         player_names = [player.name for player in self.players.values()]
         game_state = {
             "id": self.id,
@@ -80,13 +80,13 @@ class Game:
     def start(self):
         self.location = random.choice(self.available_locations)
 
-        roles = self.location["unique_roles"] + self.location["nonunique_roles"]
+        roles = self.location.unique_roles + self.location.nonunique_roles
         random.shuffle(roles)
 
         spy = random.choice(list(self.players.keys()))
         for player_id, values in self.players.items():
             if not roles:
-                roles = self.location["nonunique_roles"]
+                roles = self.location.nonunique_roles
                 random.shuffle(roles)
             if player_id == spy:
                 values.role = "Spy"
