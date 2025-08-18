@@ -13,7 +13,7 @@ jobs:
       TAG: ghcr.io/johanbook/spyballs:latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Login to ghcr.io
         uses: docker/login-action@v3
