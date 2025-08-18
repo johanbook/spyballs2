@@ -1,7 +1,7 @@
 ################################
 # Build assets
 ################################
-FROM node:24.4.1-alpine AS builder
+FROM node:24.6.0-alpine AS builder
 
 WORKDIR /app
 
